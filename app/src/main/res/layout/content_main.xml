@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="0dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="tipcalcapp.com.tipcalculator.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <LinearLayout
+        android:id="@+id/empty_box"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        tools:ignore="MissingConstraints">
+
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ScrollView
+                android:id="@+id/scrollView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_marginLeft="15dp"
+                    tools:layout_marginRight="15dp">
+
+                    <LinearLayout
+                        android:id="@+id/bill_amount_box"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/bill_amount_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="@string/bill_amount"
+                                android:textSize="18sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintHorizontal_bias="0.06"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.051" />
+
+                            <TextView
+                                android:id="@+id/bill_amount_text2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="(Including Tax)"
+                                android:textSize="14sp"
+                                ads:layout_constraintBottom_toBottomOf="parent"
+                                ads:layout_constraintHorizontal_bias="0.06"
+                                ads:layout_constraintLeft_toLeftOf="parent"
+                                ads:layout_constraintRight_toRightOf="parent"
+                                ads:layout_constraintTop_toTopOf="parent"
+                                ads:layout_constraintVertical_bias="0.051" />
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/bill_amount"
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="end"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:paddingEnd="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:selectAllOnFocus="true"
+                            android:singleLine="true"
+                            android:textAlignment="textEnd"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.733"
+                            app:layout_constraintStart_toEndOf="@+id/bill_amount_text"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.034" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tip_include_box"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tip_include_text"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@string/tip_include_tax"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/editText"
+                            app:layout_constraintHorizontal_bias="0.666"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/bill_amount_text"
+                            app:layout_constraintVertical_bias="0.277" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/tip_include_switch"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="false"
+                            android:gravity="end"
+                            android:textAlignment="textEnd"
+                            android:textOff="@string/no"
+                            android:textOn="@string/yes"
+                            tools:checked="false" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tax_percent_box"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/tax_percent_text"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@string/tax_percent"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/editText"
+                            app:layout_constraintHorizontal_bias="0.666"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/bill_amount_text"
+                            app:layout_constraintVertical_bias="0.048" />
+
+                        <EditText
+                            android:id="@+id/tax_percent"
+                            android:layout_width="100dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="end"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:paddingEnd="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:selectAllOnFocus="true"
+                            android:singleLine="true"
+                            android:text="@string/default_tax_percent"
+                            android:textAlignment="textEnd"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.916"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/bill_amount"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tax_amount_box"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tax_amount_text"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@string/tax_amount"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/editText"
+                            app:layout_constraintHorizontal_bias="0.666"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/bill_amount_text"
+                            app:layout_constraintVertical_bias="0.155" />
+
+                        <EditText
+                            android:id="@+id/tax_amount"
+                            android:layout_width="100dp"
+                            android:layout_height="46dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="end"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:paddingEnd="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:selectAllOnFocus="true"
+                            android:singleLine="true"
+                            android:textAlignment="textEnd"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.917"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/bill_amount"
+                            app:layout_constraintVertical_bias="0.114" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tip_percent_box"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tip_percent_text"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@string/tip_percent"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/editText"
+                            app:layout_constraintHorizontal_bias="0.666"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/bill_amount_text"
+                            app:layout_constraintVertical_bias="0.155" />
+
+                        <EditText
+                            android:id="@+id/tip_percent"
+                            android:layout_width="100dp"
+                            android:layout_height="46dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="end"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:paddingEnd="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:selectAllOnFocus="true"
+                            android:singleLine="true"
+                            android:text="@string/default_tip_percent"
+                            android:textAlignment="textEnd"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.917"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/bill_amount"
+                            app:layout_constraintVertical_bias="0.114" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tip_amount_box"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tip_amount_text"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@string/tip_amount"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/editText"
+                            app:layout_constraintHorizontal_bias="0.666"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/bill_amount_text"
+                            app:layout_constraintVertical_bias="0.155" />
+
+                        <EditText
+                            android:id="@+id/tip_amount"
+                            android:layout_width="100dp"
+                            android:layout_height="46dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="end"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:paddingEnd="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:selectAllOnFocus="true"
+                            android:singleLine="true"
+                            android:textAlignment="textEnd"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.917"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/bill_amount"
+                            app:layout_constraintVertical_bias="0.114" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/total_bill_box"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/total_bill_text"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="@string/total_bill"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/editText"
+                            app:layout_constraintHorizontal_bias="0.666"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/bill_amount_text"
+                            app:layout_constraintVertical_bias="0.155" />
+
+                        <TextView
+                            android:id="@+id/total_bill"
+                            android:layout_width="100dp"
+                            android:layout_height="46dp"
+                            android:layout_weight="1"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/roboto_bold"
+                            android:gravity="center_vertical|end"
+                            android:paddingEnd="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textAlignment="textEnd"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/split_amount_box"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/split_amount_text"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@string/split_bill"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/editText"
+                            app:layout_constraintHorizontal_bias="0.666"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/bill_amount_text"
+                            app:layout_constraintVertical_bias="0.155" />
+
+                        <Button
+                            android:id="@+id/split_minus"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/colorAccent"
+                            android:padding="6dp"
+                            android:text="@string/split_minus"
+                            android:textAlignment="center"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/split_amount"
+                            android:layout_width="10dp"
+                            android:layout_height="46dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="end"
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:selectAllOnFocus="true"
+                            android:singleLine="true"
+                            android:text="@string/default_split_amount"
+                            android:textAlignment="center"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.917"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/bill_amount"
+                            app:layout_constraintVertical_bias="0.114"
+                            tools:ignore="RtlCompat" />
+
+                        <Button
+                            android:id="@+id/split_plus"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/colorAccent"
+                            android:padding="6dp"
+                            android:text="@string/split_plus"
+                            android:textAlignment="center"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/split_bill_box"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/split_bill_text"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="@string/each_person_pays"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/editText"
+                            app:layout_constraintHorizontal_bias="0.666"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/bill_amount_text"
+                            app:layout_constraintVertical_bias="0.155" />
+
+                        <TextView
+                            android:id="@+id/split_bill"
+                            android:layout_width="100dp"
+                            android:layout_height="46dp"
+                            android:layout_weight="1"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/roboto_bold"
+                            android:gravity="center_vertical|end"
+                            android:paddingEnd="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textAlignment="textEnd"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Default Values">
+
+        <EditTextPreference
+            android:defaultValue="15"
+            android:dialogLayout="@layout/pref_layout"
+            android:digits="0123456789"
+            android:inputType="numberDecimal"
+            android:key="default_tip"
+            android:numeric="decimal"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Tip Percentage" />
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="default_tip_tax"
+            android:title="Tip Include Tax" />
+        <EditTextPreference
+            android:defaultValue="8.5"
+            android:dialogLayout="@layout/pref_layout"
+            android:digits="0123456789"
+            android:inputType="numberDecimal"
+            android:key="default_tax_percent"
+            android:numeric="decimal"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Tax Percentage" />
+    </PreferenceCategory>
+</PreferenceScreen>
