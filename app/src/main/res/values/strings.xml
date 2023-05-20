@@ -17,7 +17,4 @@
     <string name="split_minus">-</string>
     <string name="split_plus">+</string>
     <string name="each_person_pays">Each Person Pays ($)</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
